@@ -11,5 +11,7 @@ var server = app.listen(8888, function() {
 
 });
 
+app.use(express.static(__dirname + '/assets'));
+app.use(express.static(__dirname + '/node_modules'));
 var router = new Router(app);
 router.setUp();
