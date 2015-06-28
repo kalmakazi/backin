@@ -29,7 +29,7 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        loader: 'style-loader!css-loader?localIdentName=[path][name]---[local]---[hash:base64:5]!sass?sourceMap'
       },
 
       {

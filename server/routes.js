@@ -1,15 +1,11 @@
-
-
 const ROUTES = {
-	'/': function(req, res) {
+  '/': function(req, res) {
     res.render('index.ejs');
   }
 };
 
-var Views = function() {};
-
 var Router = function(app) {
-	this.app = app;
+  this.app = app;
 };
 
 Router.prototype.setUp = function() {
