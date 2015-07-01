@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon app.js",
+    "serve": "node app.js",
     "start": "npm run serve | npm run dev",
-    "dev": "webpack-dev-server --progress --colors --port 3000"
+    "dev": "webpack-dev-server --hot --progress --colors --port 3000"
   },
   "author": "Stephen Kalmakis",
   "dependencies": {
