@@ -1,7 +1,12 @@
-:local(.exampleContainer) {
+.exampleContainer {
+  display: flex;
   color: blue;
+  padding: 20px;
+  margin: 20px;
+  background-color: green;
+  border-radius: 10px;
 }
 
-:local(.example) {
+.example {
   color: red;
 }

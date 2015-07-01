@@ -1,3 +1,4 @@
+var autoprefixer = require('autoprefixer-core');
 var path = require('path');
 var webpack = require('webpack');
 
@@ -16,11 +17,6 @@ module.exports = {
 
   },
 
-  plugins: [
-    // new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
-
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -29,7 +25,12 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader?localIdentName=[path][name]---[local]---[hash:base64:5]!sass?sourceMap'
+        loader: [
+          'style-loader',
+          'css-loader?localIdentName=[path][name]---[local]---[hash:base64:5]',
+          'sass?sourceMap',
+          'postcss-loader'
+        ].join('!')
       },
 
       {
@@ -38,5 +39,16 @@ module.exports = {
         include: path.join(__dirname, 'views')
       }    
     ]
-  }
+  },
+
+  // Provide the Local Scope plugin to postcss-loader:
+  postcss: [
+    autoprefixer({browsers: ['last 2 version']}),
+    require('postcss-local-scope'),
+  ],  
+
+  plugins: [
+    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
 }
